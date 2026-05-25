@@ -1,5 +1,5 @@
 import type { Audio } from "web-engine/audio.ts";
-import      { isObj, str, arr, makeCollector } from "../utils/validate.ts";
+import      { isObj, str, optStr, arr, makeCollector } from "../utils/validate.ts";
 import type { CampaignData, CampaignEntry, Campaign, CampaignAudio } from "./types.ts";
 import type { Level     } from "../level/types.ts";
 import      { loadLevel } from "../level/load.ts";
@@ -57,12 +57,12 @@ export async function loadCampaign(folder: string, audio: Audio): Promise<Campai
 
   const campaignAudio: CampaignAudio = {};
   if (isObj(campaign.audio)) {
-    /*const a = campaign.audio;
+    const a = campaign.audio;
     const button = optStr(a, "button", `${ctx}: audio`);
-    if (button) campaignAudio.button = button;*/
+    if (button) campaignAudio.button = button;
   }
 
   if (errors.length) throw new Error(`${ctx} failed validation:\n  ${errors.join("\n  ")}`);
-  //if (campaignAudio.button) await audio.registerSound("button", campaignAudio.button);
+  if (campaignAudio.button) await audio.registerSound("button", campaignAudio.button);
   return { name: campaign.name, levels, audio: campaignAudio };
 }

@@ -19,8 +19,9 @@ export function handleTitleFrame(w: number, h: number, playState: PlayState, aud
   };
 
   if (ui.start.state.clicked) return transition(
-    playState.levels.length > 1 ? { game: "menu-levels", ui: null }
-                                : { game: "level-playing", ui: null },
+    { game: "menu-levels", ui: null },
+    /*playState.levels.length > 1 ? { game: "menu-levels", ui: null }
+                                : { game: "level-playing", ui: null },*/
     audio
   );
   if (ui.settings.state.clicked) return transition({ game: "menu-settings", ui: null }, audio);
@@ -29,7 +30,7 @@ export function handleTitleFrame(w: number, h: number, playState: PlayState, aud
 
 export function renderTitleFrame(ctx: CanvasRenderingContext2D, ui: TitleMenuState | null): void {
   if (!ui) return;
-  drawTitle(ctx, "Web Engine Sandbox", ui.cx, ui.titleY, ui.scale, 0.12);
+  drawTitle(ctx, "Web Engine Sandbox", ui.cx, ui.titleY, ui.scale, 0.08);
   drawButton(ctx, ui.start.btn,    ui.start.state);
   drawButton(ctx, ui.settings.btn, ui.settings.state);
 }

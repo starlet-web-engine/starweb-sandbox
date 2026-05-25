@@ -1,4 +1,4 @@
-import type { Level       } from "../level/types.ts";
+import type { Level } from "../level/types.ts";
 import type {
   SliderState,
   TitleMenuState,
@@ -15,5 +15,6 @@ export interface PlayState {
 export type FrameState = { game: "menu-title";    ui: TitleMenuState    | null }
                        | { game: "menu-settings"; ui: SettingsMenuState | null }
                        | { game: "menu-levels";   ui: LevelSelectState  | null }
-                       | { game: "level-playing"; ui: null }
-                       | { game: "level-paused";  ui: null }
+                    /* | { game: "level-playing"; ui:                     null }
+                       | { game: "level-paused";  ui:                     null }
+                       | { game: "level=won";     ui:                     null }*/

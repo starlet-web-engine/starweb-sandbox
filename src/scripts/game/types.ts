@@ -1,3 +1,10 @@
+import type { Level } from "../level/types.ts";
+
+export interface PlayState {
+  levels: Level[];
+  levelIndex: number;
+}
+
 export type FrameState = { game: "menu-title";    ui: null }
                        | { game: "menu-settings"; ui: null }
                        | { game: "menu-levels";   ui: null }

@@ -56,3 +56,19 @@ export interface LevelSelectState extends MenuLayout {
   back:         ButtonEntry;
   clickedIndex: number | null;
 }
+
+export type PauseAction    = "resume" | "restart" | "quit" | null;
+export interface PauseMenuState extends MenuLayout {
+  resume:  ButtonEntry;
+  restart: ButtonEntry;
+  quit:    ButtonEntry;
+  action:  PauseAction;
+}
+
+export type CompleteAction = "next"   | "restart" | "quit" | null;
+export interface CompleteMenuState extends MenuLayout {
+  restart: ButtonEntry;
+  next:    ButtonEntry | null;
+  quit:    ButtonEntry;
+  action:  CompleteAction;
+}

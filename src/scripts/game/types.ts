@@ -3,7 +3,9 @@ import type {
   SliderState,
   TitleMenuState,
   SettingsMenuState,
-  LevelSelectState
+  LevelSelectState,
+  PauseMenuState,
+  CompleteMenuState
 } from "../ui/types.ts";
 
 export interface PlayState {
@@ -12,9 +14,9 @@ export interface PlayState {
   volState: SliderState;
 }
 
-export type FrameState = { game: "menu-title";    ui: TitleMenuState    | null }
-                       | { game: "menu-settings"; ui: SettingsMenuState | null }
-                       | { game: "menu-levels";   ui: LevelSelectState  | null }
-                    /* | { game: "level-playing"; ui:                     null }
-                       | { game: "level-paused";  ui:                     null }
-                       | { game: "level=won";     ui:                     null }*/
+export type FrameState = { game: "menu-title";     ui: TitleMenuState    | null }
+                       | { game: "menu-settings";  ui: SettingsMenuState | null }
+                       | { game: "menu-levels";    ui: LevelSelectState  | null }
+                       | { game: "level-playing";  ui:                     null }
+                       | { game: "level-paused";   ui: PauseMenuState    | null }
+                       | { game: "level-complete"; ui: CompleteMenuState | null }

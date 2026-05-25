@@ -42,14 +42,14 @@ export function handleLevelFrame(
   const ui = { cx, scale, titleY, levels: levelEntries, back, clickedIndex };
 
   if (ui.back.state.clicked) return transition({ game: "menu-title", ui: null }, audio);
-  /*if (ui.clickedIndex !== null) {
+  if (ui.clickedIndex !== null) {
     const index = ui.clickedIndex;
     return transition(
       { game: "level-playing", ui: null },
       audio,
       () => selectLevel(playState, index)
     );
-  }*/
+  }
   return { game: "menu-levels", ui };
 }
 

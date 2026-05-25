@@ -1,4 +1,4 @@
-import { wasPressed } from "web-engine/input/keyboard.ts";
+import { wasPressed     } from "web-engine/input/keyboard.ts";
 import type { PlayState } from "./types.ts";
 import type { Campaign  } from "../campaign/types.ts";
 
@@ -29,4 +29,8 @@ export function renderPlayState(
   h: number,
 ): void {
 
+}
+
+export function resetPlayState(p: PlayState): void {
+  if (!p.levels[p.levelIndex]) throw new Error(`resetPlayState: no level at index ${p.levelIndex}`);
 }

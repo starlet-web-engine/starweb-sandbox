@@ -1,11 +1,13 @@
-import      { wasPressed            } from "web-engine/input/keyboard.ts";
-import type { Audio                 } from "web-engine/audio.ts";
-import type { FrameState, PlayState } from "./types.ts";
-import      { transition            } from "./transition.ts";
-import { renderPlayState, updatePlayState } from "./play.ts";
-import { handleTitleFrame, renderTitleFrame } from "../ui/title.ts";
+import { wasPressed                               } from "web-engine/input/keyboard.ts";
+import type { Audio                               } from "web-engine/audio.ts";
+import type { FrameState, PlayState               } from "./types.ts";
+import { transition                               } from "./transition.ts";
+import { updatePlayState,     renderPlayState     } from "./play.ts";
+import { handleTitleFrame,    renderTitleFrame    } from "../ui/title.ts";
 import { handleSettingsFrame, renderSettingsFrame } from "../ui/settings.ts";
-import { handleLevelFrame, renderLevelFrame } from "../ui/levels.ts";
+import { handleLevelFrame,    renderLevelFrame    } from "../ui/levels.ts";
+import { handlePauseFrame,    renderPauseFrame    } from "../ui/pause.ts";
+import { handleCompleteFrame, renderCompleteFrame } from "../ui/complete.ts";
 
 function handlePlayingFrame(
   frame: FrameState,
@@ -15,7 +17,7 @@ function handlePlayingFrame(
 ): FrameState {
   if (updatePlayState(playState, dt)) {
     audio.playSound("win");
-    return { game: "menu-title", ui: null };
+    return { game: "level-complete", ui: null };
   }
   return frame;
 }
@@ -27,19 +29,19 @@ export function updateFrame(
   audio: Audio,
   dt: number
 ): FrameState {
-  /*if (wasPressed("Escape")) {
+  if (wasPressed("Escape")) {
     if (frame.game === "level-playing") return transition({ game: "level-paused",  ui: null }, audio);
     if (frame.game === "level-paused" ) return transition({ game: "level-playing", ui: null }, audio);
-  }*/
+  }
 
   const { width: w, height: h } = canvas;
   switch (frame.game) {
     case "menu-title":     return handleTitleFrame   (w, h, playState, audio);
     case "menu-levels":    return handleLevelFrame   (w, h, playState, audio);
     case "menu-settings":  return handleSettingsFrame(w, h, playState, audio);
-  /*case "level-playing":  return handlePlayingFrame (frame, playState, audio, dt);
+    case "level-playing":  return handlePlayingFrame (frame, playState, audio, dt);
     case "level-paused":   return handlePauseFrame   (w, h, playState, audio);
-    case "level-complete": return handleCompleteFrame(w, h, playState, audio);*/
+    case "level-complete": return handleCompleteFrame(w, h, playState, audio);
   }
 }
 
@@ -56,8 +58,10 @@ export function renderFrame(
   if (!frame.game.startsWith("menu-")) renderPlayState(ctx, playState, w, h);
 
   switch (frame.game) {
-    case "menu-title":    renderTitleFrame   (ctx, frame.ui); break;
-    case "menu-settings": renderSettingsFrame(ctx, frame.ui); break;
-    case "menu-levels":   renderLevelFrame   (ctx, frame.ui); break;
+    case "menu-title":     renderTitleFrame   (ctx, frame.ui);       break;
+    case "menu-settings":  renderSettingsFrame(ctx, frame.ui);       break;
+    case "menu-levels":    renderLevelFrame   (ctx, frame.ui);       break;
+    case "level-paused":   renderPauseFrame   (ctx, w, h, frame.ui); break;
+    case "level-complete": renderCompleteFrame(ctx, w, h, frame.ui); break;
   }
 }

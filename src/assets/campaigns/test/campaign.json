@@ -1,6 +1,8 @@
 {
   "name": "test",
   "levels": [
-    { "data": { "name": "Level 1" } }
+    { "data": { "name": "Level 1" } },
+    { "data": { "name": "Level 2" } },
+    { "data": { "name": "Level 3" } }
   ]
 }

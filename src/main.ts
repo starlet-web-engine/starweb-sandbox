@@ -10,6 +10,7 @@ const { canvas, ctx, audio } = bootstrapGame();
 
 const BASE_URL = import.meta.env.BASE_URL;
 await audio.registerSound("button", "audio/ui/button.wav", BASE_URL);
+await audio.registerSound("win",    "audio/ui/win.wav",    BASE_URL);
 
 const campaign = await loadCampaign("test", audio);
 const playState = createPlayState(campaign, 1);

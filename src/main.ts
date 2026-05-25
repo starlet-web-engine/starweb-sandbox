@@ -19,5 +19,5 @@ let frame: FrameState = { game: "menu-title", ui: null };
 startLoop(
   (dt) => { frame = updateFrame(canvas, frame, playState, audio, dt); },
   (  ) => { renderFrame(ctx, canvas, frame, playState);               },
-  { tickRate: "variable", maxDelta: 250 }
+  { tickRate: "variable", maxDelta: 250, pauseOnHidden: true }
 )

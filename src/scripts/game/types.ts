@@ -1,5 +1,5 @@
-import type { OBB   } from "web-engine/physics/types.ts";
-import type { Level } from "../level/types.ts";
+import type { OBB, AABB } from "web-engine/physics/types.ts";
+import type { Level     } from "../level/types.ts";
 import type {
   SliderState,
   TitleMenuState,
@@ -16,6 +16,7 @@ export interface PlayState {
   canvasW:    number;
   canvasH:    number;
   bodies:     OBB[];
+  walls:      AABB[];
 }
 
 export type FrameState = { game: "menu-title";     ui: TitleMenuState    | null }

@@ -8,6 +8,7 @@ import { handleSettingsFrame, renderSettingsFrame } from "../ui/settings.ts";
 import { handleLevelFrame,    renderLevelFrame    } from "../ui/levels.ts";
 import { handlePauseFrame,    renderPauseFrame    } from "../ui/pause.ts";
 import { handleCompleteFrame, renderCompleteFrame } from "../ui/complete.ts";
+import { buildWalls                               } from "../level/build.ts";
 
 function handlePlayingFrame(
   frame: FrameState,
@@ -29,8 +30,14 @@ export function updateFrame(
   audio: Audio,
   dt: number
 ): FrameState {
-  playState.canvasW = canvas.width;
-  playState.canvasH = canvas.height;
+  const newW = canvas.width;
+  const newH = canvas.height;
+  if (newW !== playState.canvasW || newH !== playState.canvasH) {
+    playState.canvasW = newW;
+    playState.canvasH = newH;
+    const level = playState.levels[playState.levelIndex];
+    if (level) playState.walls = buildWalls(level, newW, newH);
+  }
 
   if (wasPressed("Escape")) {
     if (frame.game === "level-playing") return transition({ game: "level-paused",  ui: null }, audio);

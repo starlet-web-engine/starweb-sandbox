@@ -1,7 +1,17 @@
-import type { AABB } from "web-engine/physics/types.ts";
-
 interface LevelBase {
   name?: string;
 }
 
-export type Level = LevelBase & { kind: "physics-stress"; count: number; walls: AABB[] }
+export interface NormalizedRect {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
+
+export type Level = LevelBase & {
+  kind:       "physics-stress";
+  count:      number;
+  padding:    number;
+  extraWalls: NormalizedRect[];
+}

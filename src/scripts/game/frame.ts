@@ -29,6 +29,9 @@ export function updateFrame(
   audio: Audio,
   dt: number
 ): FrameState {
+  playState.canvasW = canvas.width;
+  playState.canvasH = canvas.height;
+
   if (wasPressed("Escape")) {
     if (frame.game === "level-playing") return transition({ game: "level-paused",  ui: null }, audio);
     if (frame.game === "level-paused" ) return transition({ game: "level-playing", ui: null }, audio);

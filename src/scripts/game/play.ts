@@ -83,8 +83,8 @@ export function updatePlayState(p: PlayState, dt: number): boolean {
 export function renderPlayState(
   ctx: CanvasRenderingContext2D,
   p: PlayState,
-  w: number,
-  h: number,
+  _w: number,
+  _h: number,
 ): void {
   const level = p.levels[p.levelIndex];
   if (!level) return;

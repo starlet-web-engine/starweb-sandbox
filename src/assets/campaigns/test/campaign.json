@@ -1,8 +1,18 @@
 {
   "name": "test",
   "levels": [
-    { "data": { "name": "Level 1" } },
-    { "data": { "name": "Level 2" } },
-    { "data": { "name": "Level 3" } }
+    {
+      "data": {
+        "kind": "physics-stress",
+        "name": "Physics Stress",
+        "count": 200,
+        "walls": [
+          { "x": 0,    "y": 0,    "w": 1280, "h": 20   },
+          { "x": 0,    "y": 700,  "w": 1280, "h": 20   },
+          { "x": 0,    "y": 0,    "w": 20,   "h": 720  },
+          { "x": 1260, "y": 0,    "w": 20,   "h": 720  }
+        ]
+      }
+    }
   ]
 }

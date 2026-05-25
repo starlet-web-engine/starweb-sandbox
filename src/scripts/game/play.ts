@@ -2,13 +2,13 @@ import { wasPressed } from "web-engine/input/keyboard.ts";
 import type { PlayState } from "./types.ts";
 import type { Campaign  } from "../campaign/types.ts";
 
-export function createPlayState(campaign: Campaign): PlayState {
+export function createPlayState(campaign: Campaign, initialVolume: number): PlayState {
   if (!campaign.levels[0]) throw new Error("Campaign has no levels");
-  const state: PlayState = {
+  return {
     levels: campaign.levels,
-    levelIndex: 0
-  }
-  return state;
+    levelIndex: 0,
+    volState: { dragging: false, value: initialVolume },
+  };
 }
 
 export function selectLevel(p: PlayState, index: number): void {

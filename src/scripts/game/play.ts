@@ -92,9 +92,8 @@ export function renderPlayState(
   if (level.kind === "physics-stress") {
     ctx.strokeStyle = "#fff";
     ctx.lineWidth = 1;
-    for (const wall of p.walls) {
-      ctx.strokeRect(wall.x, wall.y, wall.w, wall.h);
-    }
+    for (const wall of p.walls)
+      ctx.strokeRect(wall.cx - wall.hw, wall.cy - wall.hh, wall.hw * 2, wall.hh * 2);
     ctx.strokeStyle = "#0f0";
     for (const b of p.bodies) {
       ctx.save();

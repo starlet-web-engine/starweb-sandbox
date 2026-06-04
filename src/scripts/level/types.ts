@@ -10,8 +10,9 @@ export interface NormalizedRect {
 }
 
 export type Level = LevelBase & {
-  kind:       "physics-stress";
-  count:      number;
-  padding:    number;
-  extraWalls: NormalizedRect[];
+  kind:        "physics-stress";
+  count:       number;
+  padding:     number;
+  shape:       "rect" | "circle";
+  extraWalls?: NormalizedRect[];
 }

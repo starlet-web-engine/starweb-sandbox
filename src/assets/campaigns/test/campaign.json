@@ -7,7 +7,17 @@
         "name": "Physics Stress",
         "count": 500,
         "padding": 0.05,
+        "shape": "rect",
         "extraWalls": [{ "x": 0.25, "y": 0.25, "w": 0.5, "h": 0.015 }]
+      }
+    },
+    {
+      "data": {
+        "kind": "physics-stress",
+        "name": "Circle Stress",
+        "count": 500,
+        "padding": 0.05,
+        "shape": "circle"
       }
     }
   ]

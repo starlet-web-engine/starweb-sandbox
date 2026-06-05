@@ -1,5 +1,5 @@
 import type { OBB, AABB, CircleBody } from "web-engine/physics/types.ts";
-import type { Level     } from "../level/types.ts";
+import type { Level                 } from "../level/types.ts";
 import type {
   SliderState,
   TitleMenuState,

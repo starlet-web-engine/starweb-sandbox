@@ -3,7 +3,7 @@ import type { PlayState  } from "./types.ts";
 import type { Campaign   } from "../campaign/types.ts";
 import { buildWalls      } from "../level/build.ts";
 import { renderWalls     } from "../level/render.ts";
-import { spawnRects, updateRects, renderRects     } from "../physics/rect.ts";
+import { spawnRects, updateRects, renderRects       } from "../physics/rect.ts";
 import { spawnCircles, updateCircles, renderCircles } from "../physics/circles.ts";
 
 function syncLevelState(p: PlayState, level: typeof p.levels[number]): void {

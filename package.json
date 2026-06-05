@@ -13,8 +13,8 @@
     "vite": "^8.0.14"
   },
   "dependencies": {
-    "starweb-engine": "github:starlet-web-engine/starweb-engine",
-    "starweb-audio": "github:starlet-web-engine/starweb-audio",
-    "starweb-physics": "github:starlet-web-engine/starweb-physics"
+    "starweb-engine": "git+https://github.com/starlet-web-engine/starweb-engine.git",
+    "starweb-audio":  "git+https://github.com/starlet-web-engine/starweb-audio.git",
+    "starweb-physics": "git+https://github.com/starlet-web-engine/starweb-physics.git"
   }
 }

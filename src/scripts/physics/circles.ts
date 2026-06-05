@@ -1,5 +1,5 @@
-import type { CircleBody, AABB        } from "web-engine/physics/types.ts";
-import { circleVsCircle, circleVsAabb } from "web-engine/physics/collision.ts";
+import type { CircleBody, AABB        } from "starweb-physics/types.js";
+import { circleVsCircle, circleVsAabb } from "starweb-physics/collision.js";
 import type { Level                   } from "../level/types.ts";
 
 export function spawnCircles(

@@ -1,4 +1,4 @@
-import type { Audio                  } from "web-engine/audio.ts";
+import type { Audio                  } from "starweb-audio/audio.js";
 import type { Button, TitleMenuState } from "./types.ts";
 import { getLayout, drawTitle        } from "./layout.ts";
 import { getButtonState, drawButton  } from "./button.ts";

@@ -1,4 +1,4 @@
-import type { OBB, AABB, CircleBody } from "web-engine/physics/types.ts";
+import type { OBB, AABB, CircleBody } from "starweb-physics/types.js";
 import type { Level                 } from "../level/types.ts";
 import type {
   SliderState,

@@ -6,7 +6,7 @@ import      { loadCampaign             } from "./scripts/campaign/load.ts";
 import      { createPlayState          } from "./scripts/game/play.ts";
 import      { updateFrame, renderFrame } from "./scripts/game/frame.ts";
 
-const { canvas, ctx, audio } = bootstrapGame();
+const { ctx, size, audio } = bootstrapGame();
 
 const BASE_URL = import.meta.env.BASE_URL;
 await audio.registerSound("button", "audio/ui/button.wav", BASE_URL);
@@ -17,7 +17,7 @@ const playState = createPlayState(campaign, 1);
 let frame: FrameState = { game: "menu-title", ui: null };
 
 startLoop(
-  (dt) => { frame = updateFrame(canvas, frame, playState, audio, dt); },
-  (  ) => { renderFrame(ctx, canvas, frame, playState);               },
-  { tickRate: 16, maxDelta: 150, pauseOnHidden: true           }
+  (dt) => { frame = updateFrame(size, frame, playState, audio, dt); },
+  (  ) => { renderFrame(ctx, size, frame, playState);               },
+  { tickRate: 16, maxDelta: 150, pauseOnHidden: true                }
 )

@@ -1,9 +1,9 @@
-# Web Engine Sandbox
+# Starweb Sandbox
 
 A stress test and sandbox environment for [web-engine](https://github.com/masonlet/web-engine/), built with TypeScript and Vite.
 
 ## Live Demo
-[masonlet.github.io/web-engine-sandbox](https://masonlet.github.io/web-engine-sandbox/)
+[masonlet.github.io/starweb-sandbox](https://masonlet.github.io/starweb-sandbox/)
 
 ## Tech Stack
 <p align="left">
@@ -32,9 +32,9 @@ A stress test and sandbox environment for [web-engine](https://github.com/masonl
 ### 1. Clone the Repository
 
 ```bash
-# Clone Web Engine Sandbox
-git clone https://github.com/masonlet/web-engine-sandbox.git
-cd web-engine-sandbox
+# Clone Starweb Sandbox
+git clone https://github.com/masonlet/starweb-sandbox.git
+cd starweb-sandbox
 ```
 
 ### 2. Install dependencies

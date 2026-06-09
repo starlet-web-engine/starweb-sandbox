@@ -1,5 +1,5 @@
+import      { isObj, str, optStr, arr, makeCollector } from "starweb-engine/validate.js";
 import type { Audio                                  } from "starweb-audio/audio.js";
-import      { isObj, str, optStr, arr, makeCollector } from "../utils/validate.ts";
 import type { CampaignData, CampaignEntry, Campaign, CampaignAudio } from "./types.ts";
 import type { Level     } from "../level/types.ts";
 import      { loadLevel } from "../level/load.ts";

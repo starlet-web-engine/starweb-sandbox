@@ -1,5 +1,5 @@
+import { isObj, num, str, optStr, arr } from "starweb-engine/validate.js";
 import type { Level, NormalizedRect   } from "./types.ts";
-import { isObj, num, str, optStr, arr } from "../utils/validate.ts";
 
 export function loadLevel(rawLevel: unknown): Level {
   if (!isObj(rawLevel)) throw new Error("Level: not an object");
